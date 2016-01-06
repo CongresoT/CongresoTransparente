@@ -1,0 +1,87 @@
+.test-container .test-content {
+	padding: 1% 2% 2% 2%;
+	width: 100% !important;
+}
+
+.test-container .test-content-input .btn-test,
+.test-container .test-content-buttons .btn-test {
+	margin: 2% 0 0 0;
+	padding: 0.25% 2%;
+	border: 1px solid #39AE60;
+	background: #52C577;
+	color: #FFFFFF;
+	font-size: 1.1em;
+}
+
+.test-container .test-content-word .letter {
+	width: 30px;
+	margin: 0 1%;
+	border-bottom: solid #000000 1px;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.test-container .test-star {
+	display: inline-block;
+	margin: 5% 0 1% 0;
+	width: 50%;
+	text-align: center;
+	vertical-align: top;
+}
+
+.test-container .test-kid {
+	display: inline-block;
+	width: 49%;
+	margin: 5% 0 1% 0;
+	text-align: center;
+	vertical-align: top;
+}
+
+.test-container .message-passed {
+	color: #1B9508;
+	font-weight: bold;
+}
+
+.test-container .message-failed {
+	color: #FF4D4D;
+	font-weight: bold;
+}
+
+.test-container .test-content-tries .remaining-tries {
+	text-align: center;
+	color: #EB1C23;
+	font-size: 2.5em;
+}
+
+.test-container .test-content-tries {
+	text-align: center;
+}
+
+.test-container .test-content-word {
+	text-align: center;
+	padding: 2% 0;
+}
+
+.test-container .test-content-wrong {
+	text-align: center;
+	padding: 2% 0;
+}
+
+.test-container .test-content-input {
+	text-align: center;
+	padding: 2% 0;
+}
+
+.test-container .test-content-wrong .wrong-letter {
+	font-size: 1.5em;
+	color: lightgray;
+	padding: 0 0.5%;
+}
+
+.test-container .test-content-input .input-letter {
+	width: 25px;
+	text-align: center;
+}

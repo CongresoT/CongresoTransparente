@@ -1,0 +1,329 @@
+/*** COMMON ELEMENTS ***/
+
+@font-face {
+	font-family: 'Myriad Pro Regular';
+	src: url('../fonts/myriad.eot');
+	src: local('☺'), url('../fonts/myriad.woff') format('woff'), url('../fonts/myriad.ttf') format('truetype'), url('../fonts/myriad.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+	background: #FFFFFF;
+    font-family: Myriad Pro Regular;
+    font-weight: bold;
+}
+
+html, body, #container { height: 100%; }
+/*
+body > #container { 
+ 	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -8em;
+}
+*/
+#container { 
+	/*
+ 	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -8em;
+    */
+}
+
+a {
+	
+}
+
+a:hover {
+	
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	font-size: 26pt;
+	font-weight: normal;
+}
+
+h2 {
+	color: #0072C6;
+	font-size: 20pt;
+	font-weight: normal;
+}
+
+h3 {
+	color: #0072C6;
+	font-size: 14pt;
+	font-weight: normal;
+}
+
+.big-title {
+	color: #FF0303;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+
+@media screen and (max-width: 800px){
+    h1 {
+        font-size: 22pt;
+	}
+	
+	h2 {
+		font-size: 18pt;
+	}
+}
+
+/*** HEADER ***/
+.header {
+	text-align: center;
+	/*
+	position: relative;
+	*/
+	z-index: 1000;
+	background: url(../images/client/cert-top.png) #FFFFFF repeat-x;
+	background-position: center bottom;
+	/*
+	position: fixed;
+	top: 0;*/
+	width: 100%;
+	height: 100px;
+	padding: 0 0 1em 0;
+}
+.logo {
+	background: url(../images/client/cert-logo.png) #FFFFFF;
+	width: 353px;
+	height: 210px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*** CONTENT ***/
+
+.content {
+	padding-bottom: 3em; 
+	overflow: hidden;
+	margin: 0 auto;
+	width: 85%;
+	padding-top: 10px;
+}
+
+.photo {
+	float: left;
+	width: 20%;
+}
+
+.info {
+	float: right;
+	width: 80%;
+}
+
+.issue-date {
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+}
+
+.student-info {
+	display: inline-block;
+}
+
+.logos-left {
+	float: left;
+}
+
+.bottom-line {
+	float: left;
+	padding-top: 70px;
+	height: 100px;
+	width: 70%;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+.logos-right {
+	float: right;
+}
+
+/*** FOOTER ***/
+.footer {
+	text-align: center;
+	position: relative;
+	z-index: 1000;
+	height: 100px;
+	background: url(../images/client/cert-bottom.png) #FFFFFF repeat-x;
+	background-position: top bottom;
+	bottom: 0;
+	width: 100%;
+	padding-top: 1%;
+}
+
+@media screen and (max-width: 991px){
+	.header {
+		position: relative;
+		height: auto;
+		padding-bottom: 1.5em;
+	}
+	
+	.header .logo-container {
+		display: block;
+		width: 100%;
+	}
+
+	.header .slogan {
+		display: block;
+		width: 100%;
+		padding: 5% 0;
+	}
+	
+	.header .slogan .caption {
+		position: relative;
+		margin: 0;
+		bottom: 0;
+		text-align: center;
+	}
+	
+	.content {
+		padding: 1% 0;
+	}
+	
+	.header .toolbar {
+		display: block;
+		width: 100%;
+	}
+
+	.header .toolbar .buttons {
+		text-align: center;
+	}
+	
+	.header .toolbar .buttons .button {
+		max-width: 120px;
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+		opacity: 1;
+	}
+	
+	.header .toolbar .buttons .login {
+		display: none;
+		width: 100%;
+		position: relative;
+	}
+	
+	.blog .languages .language-pick, .videos .languages .language-pick, .lectures .languages .language-pick {
+		display: block;
+	}
+
+	.blog .languages, .videos .languages, .lectures .languages {
+		display: block;
+	}
+
+	.blog .languages .language, .videos .languages .language, .lectures .languages .language {
+		display: inline-block;
+	}
+	
+	.blog .latest-entries, .videos .latest-entries, .lectures .latest-entries {
+		display: block;
+		width: 100%;
+	}
+	
+	.footer {
+		position: relative;
+		height: auto;
+		padding: 5% 0 0 0;
+	}
+	
+	.footer .sponsors {
+		text-align: center;
+	}
+	
+	.footer .sponsors .sponsor,
+	.footer .creative-commons {
+		display: block;
+		text-align: center;
+		padding: 0;
+	}
+	
+	.module {
+		width: 100%;
+		min-width: 320px;
+	}
+
+	.module .title-container {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+
+	.module .toolbar {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+
+	.certificate {
+		width: 100%;
+		min-width: 320px;
+	}
+
+	.lecture {
+		width: 100%;
+		min-width: 320px;
+	}
+
+	.lecture .title-container {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+
+	.lecture .toolbar {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+
+	.level {
+		display: block;
+		width: 100%;		
+		min-width: 320px;		
+	}
+		
+	.test {
+		display: block;
+		width: 100%;		
+		min-width: 320px;		
+	}
+	
+	.test .test-container .tabs {
+		display: block;
+		width: 100%;		
+	}
+	
+	.test .test-container .tabs .tab {
+		display: block;
+		width: 100%;		
+	}
+
+	.test .test-container .tabs .tab .icon {
+		max-width: 24px;		
+	}
+	
+	.test .test-container .test-content {
+		display: block;
+		width: 100%;
+	}
+	
+	.test .test-container .test-content img {
+		width: 100%;
+	}
+}

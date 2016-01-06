@@ -1,0 +1,47 @@
+.video-youtube-container{
+	overflow: hidden;
+	
+	display: block;
+	height: 205px;
+	margin: 40px 0px 0px 0px;
+}
+
+.video-youtube-container img{
+	position: relative;
+	top: -35px;
+}
+
+img.video-pop{
+	max-width: 369px;
+	
+}
+
+.hidden{
+	display: none;
+}
+
+.mini-youtube{
+	overflow: hidden;
+	display: block;
+	height: 101px;
+}
+
+.mini-youtube img{
+	position: relative;
+	top: -18px;
+}
+
+.vid-cont{
+	overflow: hidden;
+	display: block;
+	height: 164px;
+}
+
+.vid-cont img{
+	position: relative;
+	top: -28px;
+}
+
+.clear{
+	clear: both;
+}

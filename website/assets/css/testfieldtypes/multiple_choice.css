@@ -1,0 +1,57 @@
+/*** ADMIN SIDE ***/
+#test-data-container .current-question {
+	width: 10;
+	max-width: 50px;
+}
+
+/*** PUBLIC SIDE ***/
+
+.test-container .tab {
+	cursor: pointer;
+}
+
+.test-container .test-content {
+	padding: 1% 2% 2% 2%;
+}
+
+.test-container .test-content h1 {
+	font-size: 1.8em;
+	margin: 0;
+}
+
+.test-container .test-content-buttons .btn-next,
+.test-container .test-content-buttons .btn-test {
+	margin: 2% 0 0 0;
+	padding: 0.5% 2%;
+	border: 1px solid #39AE60;
+	background: #52C577;
+	color: #FFFFFF;
+	float: right;
+	font-size: 1.1em;
+}
+
+.test-container .test-star {
+	display: inline-block;
+	margin: 5% 0 1% 0;
+	width: 50%;
+	text-align: center;
+	vertical-align: top;
+}
+
+.test-container .test-kid {
+	display: inline-block;
+	width: 49%;
+	margin: 5% 0 1% 0;
+	text-align: center;
+	vertical-align: top;
+}
+
+.test-container .message-passed {
+	color: #1B9508;
+	font-weight: bold;
+}
+
+.test-container .message-failed {
+	color: #FF4D4D;
+	font-weight: bold;
+}

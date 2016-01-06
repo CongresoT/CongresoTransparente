@@ -1,0 +1,15 @@
+.tb-small {
+	width: 10% !important;
+	min-width: 50px;
+}
+
+.image-map {
+	position: relative;
+	overflow: hidden;
+}
+
+.map-area {
+	position: absolute;
+	background: transparent;
+	border: 2px #FF0000 solid;
+}
