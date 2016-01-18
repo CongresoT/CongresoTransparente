@@ -85,7 +85,7 @@ class Congressman extends MY_Controller {
 		$this->grocery_crud->display_as('facebook_account','Cuenta de Facebook');
 		$this->grocery_crud->display_as('twitter_account','Cuenta de Twitter');
 		$this->grocery_crud->display_as('twitter_hashtag','Hashtag');
-		$this->grocery_crud->display_as('numero_legislaturas','Número de legislaturas');
+		$this->grocery_crud->display_as('periods','Número de legislaturas');
 
 		$this->grocery_crud->set_field_upload('photo','assets/images/congressman');
 		$this->grocery_crud->set_field_upload('curriculum','assets/uploads/congressman');
@@ -93,8 +93,8 @@ class Congressman extends MY_Controller {
 		$this->grocery_crud->change_field_type('active', 'true_false');
 		$this->grocery_crud->change_field_type('numero_legislaturas', 'integer');
 		
-		$this->grocery_crud->fields('names', 'last_names', 'district_id', 'sex_id', 'birthday', 'description', 'photo', 'curriculum', 'facebook_account', 'twitter_account', 'twitter_hashtag', 'numero_legislaturas', 'active');
-		$this->grocery_crud->columns('names', 'last_names', 'district_id', 'sex_id', 'birthday', 'photo', 'numero_legislaturas', 'active');
+		$this->grocery_crud->fields('names', 'last_names', 'district_id', 'sex_id', 'birthday', 'description', 'photo', 'curriculum', 'facebook_account', 'twitter_account', 'twitter_hashtag', 'periods', 'active');
+		$this->grocery_crud->columns('names', 'last_names', 'district_id', 'sex_id', 'birthday', 'photo', 'periods', 'active');
 		
 		$this->grocery_crud->set_relation('sex_id', 'sex', '{name}');
 		$this->grocery_crud->set_relation('district_id', 'district', '{name}');

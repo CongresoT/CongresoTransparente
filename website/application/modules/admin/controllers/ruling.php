@@ -75,13 +75,15 @@ class Ruling extends MY_Controller {
 		
 		$this->grocery_crud->display_as('ruling_id','ID');
 		$this->grocery_crud->display_as('law_id','Actividad legislativa');
+		$this->grocery_crud->display_as('comission_id','Comisión');
 		$this->grocery_crud->display_as('description','Descripción');
 		$this->grocery_crud->display_as('creation_date','Fecha');
 		
-		$this->grocery_crud->fields('law_id', 'description', 'creation_date');
-		$this->grocery_crud->columns('law_id', 'creation_date');
+		$this->grocery_crud->fields('law_id', 'comission_id', 'description', 'creation_date');
+		$this->grocery_crud->columns('law_id', 'comission_id', 'creation_date');
 		
 		$this->grocery_crud->set_relation('law_id', 'law', 'No. {number} - {name}');
+		$this->grocery_crud->set_relation('comission_id', 'commission', '{name} - {creation_date}');
 		
 		// BEGIN: Validation rules
 		$this->grocery_crud->set_rules('law_id','Actividad legislativa','required');

@@ -39,10 +39,42 @@ class Client extends MY_Controller {
   */	
 	function index()
 	{
-		$main_content = $this->content_model->get(CONTENT_ABOUT_US)->content;
+		$main_content = $this->content_model->get(CONTENT_FRONTPAGE_TEXT)->content;
 		$ad_content = $this->content_model->get(CONTENT_FRONTPAGE_AD)->content;
 		
 		$this->load->view('main', array('main_content' => $main_content,
 		'ad_content' => $ad_content));
+	}
+	
+/**
+  * About us
+  *
+  * About us section
+  * 
+  *
+  * @param	none
+  * @return	none
+  */	
+	function about_us()
+	{
+		$content = $this->content_model->get(CONTENT_ABOUT_US);
+		
+		$this->load->view('content_page', array('content' => $content));
+	}
+	
+/**
+  * Under construction
+  *
+  * Under construction
+  * 
+  *
+  * @param	none
+  * @return	none
+  */	
+	function under_construction()
+	{
+		$content = $this->content_model->get(CONTENT_UNDER_CONSTRUCTION);
+		
+		$this->load->view('content_page', array('content' => $content));
 	}
 }

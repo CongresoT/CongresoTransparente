@@ -13,9 +13,7 @@
 				<a href="https://www.facebook.com/CongresoTransparente.org/" target="_blank"><img src="<?php echo site_url('assets/images/btn-sn-facebook.png'); ?>" alt="Facebook" class="social-button" /></a>
 			</div>
 			<div class="col-md-12 search-box">
-				<form action="" method="post">
-					<input type="textbox" name="search" placeholder="Buscar" class="search-textbox" /><input type="image" src="<?php echo site_url('assets/images/btn-search.png'); ?>" class="btn-search" />
-				</form>
+				<gcse:search></gcse:search>
 			</div>
 		</div>
 	</div>

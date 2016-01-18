@@ -76,6 +76,7 @@ class Citation extends MY_Controller {
 		$this->grocery_crud->display_as('citation_id','ID');
 		$this->grocery_crud->display_as('citation_status_id','Estado');
 		$this->grocery_crud->display_as('person_name','Persona');
+		$this->grocery_crud->display_as('congressman_id','Diputado');
 		$this->grocery_crud->display_as('location','Lugar');
 		$this->grocery_crud->display_as('date','Fecha');
 		$this->grocery_crud->display_as('subject','Asunto');
@@ -86,10 +87,11 @@ class Citation extends MY_Controller {
 		$this->grocery_crud->set_field_upload('attachment','assets/uploads/citation');
 		$this->grocery_crud->set_field_upload('audio','assets/uploads/citation');
 
-		$this->grocery_crud->fields('citation_status_id', 'person_name', 'location', 'date', 'subject', 'description', 'attachment', 'audio');
-		$this->grocery_crud->columns('citation_status_id', 'person_name', 'location', 'date', 'subject');
+		$this->grocery_crud->fields('citation_status_id', 'congressman_id', 'person_name', 'location', 'date', 'subject', 'description', 'attachment', 'audio');
+		$this->grocery_crud->columns('citation_status_id', 'congressman_id', 'person_name', 'location', 'date', 'subject');
 		
 		$this->grocery_crud->set_relation('citation_status_id', 'citation_status', '{name}');
+		$this->grocery_crud->set_relation('congressman_id', 'congressman', '{names} - {last_names}');
 		
 		// BEGIN: Validation rules
 		$this->grocery_crud->set_rules('person_name','Persona','required');

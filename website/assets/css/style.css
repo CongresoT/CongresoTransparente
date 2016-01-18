@@ -64,11 +64,58 @@
 
 }
 
+/*** Data tables ***/
+
+table.dataTable {
+	border-bottom: 0 !important;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	border-bottom: 0 !important;
+}
+
+table.dataTable thead tr {
+	background: #00BCBC;
+	color: #FFFFFF;
+	font-size: 1.2em;
+}
+
+table.dataTable thead tr th {
+	text-align: center;
+	text-shadow: none;
+	font-weight: normal !important;
+	line-height: 1em;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+	background: #D1D1D1;
+	color: #000000;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+	background: #EDEDED;
+	color: #000000;
+}
+
 /*** Site ***/
 
 body, html {
 	font-family: 'museo_sans500';
 	font-size: 0.875em;
+}
+
+h3.sub-title {
+	color: #00BCBC;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	padding: 0 0 10px 0;
+	margin: 0;
+	font-weight: bold;
+	text-align: center;
+}
+
+.clear {
+	clear: both
 }
 
 #header {
@@ -78,10 +125,11 @@ body, html {
 
 .logo-container {
 	text-align: center;
+	padding: 1% 0 0 0;
 }
 
 .logo {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
 }
 
@@ -101,16 +149,59 @@ body, html {
 	margin: 0 0 0 2%;
 }
 
+div.gsc-input-box {
+	border: 0;
+}
+
 .search-textbox {
 	background: #DFDFDF;
 	border: 0;
 	padding: 2px;
-	height: 21px;
+	height: 22px;
 }
 
 .btn-search {
-	vertical-align: middle;
-	margin: -3px 0 0 0;
+	vertical-align: middle !important;
+	margin: -2px 0 0 0 !important;
+}
+
+.gsc-control-cse {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.gsc-search-box .gsc-input>input:hover,
+.gsc-input-box,
+.gsc-input-box-hover,
+.gsc-search-box.gsc-input-box-hover,
+.gsc-search-box.gsc-input-box-focus {
+	border: 0 !important;
+	border-top: 0 !important;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	background: none !important;
+}
+
+input.gsc-input {
+	background: #DFDFDF  url('') !important;
+	border: 0 !important;
+	padding: 2px !important;
+	height: 22px !important;
+	width: 40% !important;
+}
+
+input.gsc-search-button {
+	background: url(../images/btn-search.png) no-repeat !important;
+    height: 0 !important;
+    width: 0 !important;
+    padding: 22px 35px 0 0 !important;
+    margin: 10px 0 0 -25px !important;
+    border: 0 !important;
+}
+
+.gsib_b {
+	display: none !important;
 }
 
 .social-links {
@@ -123,8 +214,20 @@ body, html {
 	padding: 0 5% 0 0;	
 }
 
+.main-container {
+	margin: 0 auto 2% auto;
+	width: 55%;
+}
+
 .col-md-12.mainmenu {
 	padding: 2% 0 0 0;
+}
+
+.main-container .fb-comments {
+    text-align: center;
+    margin: 1% auto;
+    width: 100%;
+    display: inline-block;	
 }
 
 .navbar.navbar-default.mainmenu {
@@ -203,6 +306,18 @@ body, html {
     transition: all 0.5s;	
 }
 
+#content-menu .btn-menu.grayscale {
+    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+#content-menu .btn-menu.grayscale:hover {
+    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+	opacity: 1;
+}
 
 .main-bottom {
 	text-align: center;
@@ -217,6 +332,646 @@ body, html {
 	width: 30%;
 }
 
+.title-container {
+	text-align: left;	
+}
+
+.back-container {
+	text-align: right;	
+	padding-bottom: 3%;
+}
+
+.title-container img,
+.back-container img {
+	vertical-align: middle;
+}
+
+/*** Content ***/
+.page-content {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.page-content h1 {
+	text-align: center;
+	font-weight: bold;
+	color: #00B7FF;
+}
+
+/*** Congressman ***/
+
+.congressman-list .search-form {
+	padding: 5% 0 10% 0;
+}
+
+.congressman-list .search-form .col-md-4 {
+	
+}
+
+.congressman-list .search-form div {
+	text-align: center;
+}
+
+
+.congressman-list .search-form div input[type=text],
+.congressman-list .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.congressman-list .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.congressman-list .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.congressman-info {
+	background: #00C1C6;
+	margin: 5% 0 5% -50%;
+	padding: 5% 0 5% 50%;
+	width: 190.9%;
+}
+
+.congressman-info .congressman-photo-container,
+.congressman-info .congressman-info-container {
+	display: inline-block;
+}
+
+.congressman-info .congressman-photo-container {
+	max-width: 20%;
+	vertical-align: top;
+}
+
+.congressman-info .congressman-photo {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+.congressman-info .congressman-info-container {
+	padding: 0 0 0 3%;
+}
+
+.congressman-info .congressman-info-container .label-fullname {
+    color: #034A6D;
+    font-size: 1.8em;
+    letter-spacing: -1px;
+	font-family: 'museo700';
+}
+
+.congressman-info .congressman-info-container .congressman-label {
+    color: #FFFFFF;
+    font-size: 1.2em;
+	font-family: 'museo500';
+}
+
+.congressman-info .congressman-info-container .congressman-value {
+	color: #FFFFFF;
+    font-size: 1.2em;
+	font-family: 'museo500';
+}
+
+.congressman-info .congressman-description {
+	color: #FFFFFF;
+    width: 80%;
+    margin: 3% 0 0 0;
+    font-size: 1.1em;
+}
+
+.congressman-menu {
+	text-align: center;
+}
+
+.congressman-menu .btn-menu {
+	width: 17%;
+	margin: 2%;
+	opacity: 1;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;	
+	cursor: pointer;	
+}
+
+.congressman-menu .btn-menu:hover {
+	opacity: 0.5;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;	
+	cursor: pointer;	
+}
+
+.congressman-votes .search-form
+{
+	background: #00A7CE;
+}
+
+.congressman-votes .search-form .search
+{
+	background: #00A7CE;
+	padding: 2%;
+}
+
+.congressman-votes .search-form .search .searchtext
+{
+	font-size: 1.5em;
+	color: #FFFFFF;
+}
+
+.congressman-votes .search-form .search .searchbox
+{
+	text-align: right;
+}
+
+.congressman-votes .search-form .law-type
+{
+	background: #00A7CE;
+	padding: 0%;
+}
+
+.congressman-votes .search-form .law-type .law-type-list
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+    overflow: hidden;
+    border: #52C5D8 1px solid;
+    float: left;
+}
+
+.congressman-votes .search-form .law-type .law-type-list li
+{
+    float: left;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
+}
+
+.congressman-votes .search-form .law-type .law-type-list li+li
+{
+    border-left: #52C5D8 1px solid;
+}
+
+.congressman-votes .search-form .law-type .btn-law-type
+{
+	background: #00A7CE;
+	color: #FFFFFF;
+	display: inline-block;
+	text-align: center;
+	text-transform: uppercase;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+	cursor: pointer;
+}
+
+.congressman-votes .search-form .law-type .law-type-list .btn-law-type:hover,
+.congressman-votes .search-form .law-type .law-type-list .btn-law-type.selected
+{
+	background: #AFE8E5;
+	color: #22B2BF;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.congressman-votes .search-form .law-type .btn-law-type .law-type-text
+{
+	margin: 0 3%;
+}
+
+.congressman-attendance-total-container {
+	text-align: center;
+}
+
+.congressman-attendance-total {
+	vertical-align: top;
+	display: inline-block;
+	border: #000000 2px solid;
+	text-align: center;
+	font-size: 1em;
+	padding: 1%;
+	width: 7vw;
+    height: 7vw;	
+	margin: 0 4%;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);	
+}
+
+.congressman-attendance-total-content {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.congressman-attendance-total .congressman-attendance-total-content .value {
+	font-size: 2vw;
+	font-weight: bold;
+}
+
+.congressman-attendance-total .congressman-attendance-total-content .text {
+	font-size: 1vw;
+	line-height: 1vw;
+}
+
+.congressman-parties-graph .graph-row {
+	text-align: center;
+}
+
+.congressman-parties-graph .graph-row .graph-party-left {
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+	height: 6vw;
+}
+
+.congressman-parties-graph .graph-row .graph-party-middle {
+	width: 15px;
+	background: #2EAEEF;
+	display: inline-block;
+	vertical-align: top;
+	height: 6vw;
+}
+
+.congressman-parties-graph .graph-row .graph-party-right {
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	height: 6vw;
+}
+
+.congressman-parties-graph .graph-row .graph-party-left.top,
+.congressman-parties-graph .graph-row .graph-party-middle.top,
+.congressman-parties-graph .graph-row .graph-party-right.top,
+.congressman-parties-graph .graph-row .graph-party-left.bottom,
+.congressman-parties-graph .graph-row .graph-party-middle.bottom,
+.congressman-parties-graph .graph-row .graph-party-right.bottom {
+	height: 1vw;
+}
+
+.congressman-parties-graph .graph-row .graph-party-middle.top {
+	vertical-align: bottom;
+	border-top-left-radius: 100px;
+	border-top-right-radius: 100px;
+}
+
+.congressman-parties-graph .graph-row .graph-party-middle.bottom {
+	vertical-align: top;
+	border-bottom-left-radius: 100px;
+	border-bottom-right-radius: 100px;	
+}
+
+.congressman-parties-graph .graph-row .graph-party-left .graph-party-image,
+.congressman-parties-graph .graph-row .graph-party-right .graph-party-image {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.congressman-parties-graph .graph-row .graph-party-left .graph-party-text,
+.congressman-parties-graph .graph-row .graph-party-right .graph-party-text {
+	display: inline-block;
+	vertical-align: middle;	
+	margin-top: -6%;
+	font-size: 1.5em;
+}	
+
+.congressman-parties-graph .graph-row .graph-party-left .graph-party-pointer,
+.congressman-parties-graph .graph-row .graph-party-right .graph-party-pointer {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	vertical-align: middle;	
+	background: #2EAEEF;
+	margin-top: -6%;
+}
+
+.congressman-parties-graph .graph-row .graph-party-left .graph-party-pointer {
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+}
+
+.congressman-parties-graph .graph-row .graph-party-right .graph-party-pointer {
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+}
+
+
+.congressman-parties-graph .graph-row .graph-party-left .graph-party-text {
+	margin-right: 6%;
+}
+
+.congressman-parties-graph .graph-row .graph-party-right .graph-party-text {
+	margin-left: 6%;
+}
+
+.congressman-laws .search-form
+{
+	background: #00A7CE;
+}
+
+.congressman-laws .search-form .search
+{
+	background: #00A7CE;
+	padding: 2%;
+}
+
+.congressman-laws .search-form .search .searchtext
+{
+	font-size: 1.5em;
+	color: #FFFFFF;
+}
+
+.congressman-laws .search-form .search .searchbox
+{
+	text-align: right;
+}
+
+.congressman-laws .search-form .law-type
+{
+	background: #00A7CE;
+	padding: 0%;
+}
+
+.congressman-laws .search-form .law-type .law-type-list
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+    overflow: hidden;
+    border: #52C5D8 1px solid;
+    float: left;
+}
+
+.congressman-laws .search-form .law-type .law-type-list li
+{
+    float: left;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
+}
+
+.congressman-laws .search-form .law-type .law-type-list li+li
+{
+    border-left: #52C5D8 1px solid;
+}
+
+.congressman-laws .search-form .law-type .btn-law-type
+{
+	background: #00A7CE;
+	color: #FFFFFF;
+	display: inline-block;
+	text-align: center;
+	text-transform: uppercase;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+	cursor: pointer;
+}
+
+.congressman-laws .search-form .law-type .law-type-list .btn-law-type:hover,
+.congressman-laws .search-form .law-type .law-type-list .btn-law-type.selected
+{
+	background: #AFE8E5;
+	color: #22B2BF;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.congressman-laws .search-form .law-type .btn-law-type .law-type-text
+{
+	margin: 0 3%;
+}
+
+.congressman-cv .congressman-cv-container {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.congressman-cv .congressman-cv-container iframe {
+	width: 100%;
+	height: 25vw;
+}
+
+/*** law ***/
+
+.law-list .search-form {
+	padding: 5% 0 10% 0;
+}
+
+.law-list .search-form .col-md-4 {
+	
+}
+
+.law-list .search-form div {
+	text-align: center;
+}
+
+
+.law-list .search-form div input[type=text],
+.law-list .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.law-list .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.law-list .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.law-info {
+	background: #00C1C6;
+	margin: 5% 0 5% -50%;
+	padding: 5% 0 5% 50%;
+	width: 190.9%;
+}
+
+.law-info .law-info-container {
+	display: inline-block;
+}
+
+.law-info .law-info-container {
+	padding: 0 3%;
+}
+
+.law-info .law-info-container .label-fullname {
+    color: #034A6D;
+    font-size: 1.8em;
+    letter-spacing: -1px;
+	font-family: 'museo700';
+}
+
+.law-info .law-info-container .law-label {
+    color: #FFFFFF;
+    font-size: 1.2em;
+	font-family: 'museo500';
+}
+
+.law-info .law-info-container .law-value {
+	color: #FFFFFF;
+    font-size: 1.2em;
+	font-family: 'museo500';
+}
+
+.law-info .law-description {
+	color: #FFFFFF;
+    width: 80%;
+    margin: 3% 0 0 0;
+    font-size: 1.1em;
+}
+
+.law-menu {
+	text-align: center;
+}
+
+.law-menu .btn-menu {
+	width: 17%;
+	margin: 2%;
+	opacity: 1;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;	
+	cursor: pointer;	
+}
+
+.law-menu .btn-menu:hover {
+	opacity: 0.5;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;	
+	cursor: pointer;	
+}
+
+.law-status-line {
+	margin: 0 auto;
+	width: 25%;
+}
+
+.law-status-line-element {
+	color: #00B7FF;
+	font-size: 1.2em;
+}
+
+.law-votes .search-form {
+	margin: 2% 0;
+}
+
+.law-votes .search-form div input[type=text],
+.law-votes .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.law-votes .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.law-votes .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+
+.law-rulings .search-form {
+	margin: 2% 0;
+}
+
+.law-rulings .search-form div input[type=text],
+.law-rulings .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.law-rulings .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.law-rulings .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.law-timeline .search-form {
+	margin: 2% 0;
+}
+
+.law-timeline .search-form div input[type=text],
+.law-timeline .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.law-timeline .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.law-timeline .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+/*** Commission ***/
+
+.commission-list .search-form {
+	padding: 1% 0 10% 0;
+}
+
+.commission-list .search-form .col-md-4 {
+	
+}
+
+.commission-list .search-form div {
+	text-align: left;
+}
+
+
+.commission-list .search-form div input[type=text],
+.commission-list .search-form div select {
+	background: #E0E0E0;
+	border: 0;
+	height: 22px;
+}
+
+.commission-list .search-form div input[type=text] {
+	width: 80%;
+	background: #E0E0E0;
+	border: 0;
+	margin: 0;
+}
+
+.commission-list .search-form div select {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.commission-list .commission-row {
+	cursor: pointer;
+}
+
+/*** Footer ***/
+
 #footer {
 	padding: 1% 0;
 	text-align: center;
@@ -228,7 +983,42 @@ body, html {
 
 @media (max-width: 768px)
 {
+	.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+		margin-right: 0;
+		margin-left: 0;
+	}	
+	
 	#main-menu .btn-menu {
 		border-right: 0px;
 	}
+	
+	.main-container {
+		margin: 0 auto 2% auto;
+		width: 100%;
+	}
+	
+	.congressman-info {
+		margin: 5% 0;
+		padding: 5% 0;
+		width: 100%;
+	}	
+	
+	.congressman-info .congressman-description {
+		width: 100%;
+	}	
+	
+	.congressman-attendance-total {
+		width: 10vw;
+		height: 10vw;	
+	}	
+
+	.law-info {
+		margin: 5% 0;
+		padding: 5% 0;
+		width: 100%;
+	}	
+	
+	.law-info .law-description {
+		width: 100%;
+	}	
 }

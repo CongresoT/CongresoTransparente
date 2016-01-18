@@ -105,6 +105,7 @@ h1 {
 
 .main-container {
 	margin: 2%;
+	width: 98% !important;
 }
 
 .main-container a {

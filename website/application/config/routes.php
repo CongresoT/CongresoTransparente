@@ -41,6 +41,29 @@
 $route['default_controller'] = "client";
 $route['404_override'] = '';
 
+$route['acerca_de'] = "client/about_us";
+$route['calendario'] = "client/under_construction";
+$route['biblioteca'] = "client/under_construction";
+
+$route['diputados'] = "client/congressman";
+$route['diputado/(:num)'] = "client/congressman/congressman_profile/$1";
+$route['diputado/votaciones/(:num)'] = "client/congressman/congressman_votes/$1";
+$route['diputado/asistencia/(:num)'] = "client/congressman/congressman_attendance/$1";
+$route['diputado/bancadas/(:num)'] = "client/congressman/congressman_parties/$1";
+$route['diputado/leyes_presentadas/(:num)'] = "client/congressman/congressman_laws/$1";
+$route['diputado/citaciones/(:num)'] = "client/congressman/congressman_citations/$1";
+$route['diputado/comisiones/(:num)'] = "client/congressman/congressman_comissions/$1";
+$route['diputado/cv/(:num)'] = "client/congressman/congressman_cv/$1";
+
+$route['actividades_legislativas'] = "client/law";
+$route['actividad_legislativa/(:num)'] = "client/law/law_profile/$1";
+$route['actividad_legislativa/votaciones/(:num)'] = "client/law/law_votes/$1";
+$route['actividad_legislativa/dictamenes/(:num)'] = "client/law/law_rulings/$1";
+$route['actividad_legislativa/historial/(:num)'] = "client/law/law_timeline/$1";
+
+$route['comisiones'] = "client/commission";
+$route['comision/(:num)'] = "client/commission/commission_profile/$1";
+
 $route['admin'] = "admin/admin";
 $route['admin'] = "admin/admin";
 $route['admin/login'] = "admin/admin/login";

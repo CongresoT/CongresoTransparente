@@ -57,23 +57,10 @@ define('USER_TYPE_FRONT',		'2');
 |
 */
 
-define('CONTENT_ABOUT_US',			'1');
-define('CONTENT_FRONTPAGE_TEXT',	'2');
-define('CONTENT_FRONTPAGE_AD',		'3');
-
-/*
-|--------------------------------------------------------------------------
-| Assignment constants
-|--------------------------------------------------------------------------
-|
-| These are the assignment constants
-|
-*/
-
-define('COURSE_STATUS_APPROVED',	2);
-define('COURSE_STATUS_FAILED',		3);
-define('COURSE_STATUS_SUSPENDED',	4);
-define('COURSE_STATUS_ASSIGNED',	5);
+define('CONTENT_ABOUT_US',				'1');
+define('CONTENT_FRONTPAGE_TEXT',		'2');
+define('CONTENT_FRONTPAGE_AD',			'3');
+define('CONTENT_UNDER_CONSTRUCTION',	'4');
 
 /*
 |--------------------------------------------------------------------------

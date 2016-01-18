@@ -2,10 +2,10 @@
 /**
   * Content model
   *
-  * This is the main model for content on the administration part.
+  * This is the main model for content on the public part.
   *
   * @author  	Donald Leiva <admin@donaldleiva.com>
-  * @package	Admin/Content/Models
+  * @package	Public/Content/Models
   */
 class Content_model extends CI_Model {
 
