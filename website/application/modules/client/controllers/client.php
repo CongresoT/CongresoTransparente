@@ -56,8 +56,10 @@ class Client extends MY_Controller {
   * @return	none
   */	
 	function about_us()
-	{
+	{	
 		$content = $this->content_model->get(CONTENT_ABOUT_US);
+		
+		$this->set_title($content->title);
 		
 		$this->load->view('content_page', array('content' => $content));
 	}
@@ -74,6 +76,8 @@ class Client extends MY_Controller {
 	function under_construction()
 	{
 		$content = $this->content_model->get(CONTENT_UNDER_CONSTRUCTION);
+		
+		$this->set_title($content->title);
 		
 		$this->load->view('content_page', array('content' => $content));
 	}

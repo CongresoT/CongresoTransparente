@@ -15,16 +15,16 @@
 					<tr>
 						<th>Comisión</th>
 						<th>Puesto</th>
-						<th>Fecha</th>
+						<th>Año</th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php if ($commissions_list): ?>
 					<?php foreach ($commissions_list as $element): ?>
 					<tr class="congressman-commission-row">
-						<td><?php echo $element->name; ?></td>
+						<td comission-id="<?php echo $element->comission_id; ?>"><?php echo $element->name; ?></td>
 						<td><?php echo $element->position; ?></td>
-						<td><?php echo date( 'd/m/Y', strtotime($element->date)); ?></td>
+						<td><?php echo date( 'Y', strtotime($element->date)); ?></td>
 					</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>

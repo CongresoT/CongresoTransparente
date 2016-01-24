@@ -199,7 +199,8 @@ class Political_party extends MY_Controller {
 			// Generate two smaller images
 			$config['image_library'] = 'gd2';
 			$config['source_image']	= 'assets/images/political_party/' . $post_array['logo'];
-			$config['thumb_marker'] = '_thumb';
+			$config['new_image']	= 'assets/images/political_party/thumbnail/' . $post_array['logo'];
+			$config['thumb_marker'] = '';
 			$config['create_thumb'] = TRUE;
 			$config['maintain_ratio'] = TRUE;
 			$config['width']	 = 120;
@@ -228,7 +229,8 @@ class Political_party extends MY_Controller {
 			// Generate two smaller images
 			$config['image_library'] = 'gd2';
 			$config['source_image']	= 'assets/images/political_party/' . $post_array['logo'];
-			$config['thumb_marker'] = '_thumb';
+			$config['new_image']	= 'assets/images/political_party/thumbnail/' . $post_array['logo'];
+			$config['thumb_marker'] = '';
 			$config['create_thumb'] = TRUE;
 			$config['maintain_ratio'] = TRUE;
 			$config['width']	 = 120;

@@ -21,7 +21,7 @@
 						<?php echo date_parse($element->date_begin)['year'] . (($element->date_end == null or $element->date_end == '') ? '' : ' - ' . date_parse($element->date_end)['year']); ?>
 					</span>
 					<span class="graph-party-image">
-						<img src="<?php echo site_url('assets/images/political-party.png'); ?>" style="background-color: #<?php echo $element->color; ?>" alt="<?php echo  htmlspecialchars($element->full_name, ENT_QUOTES); ?>" />
+						<img src="<?php echo site_url('assets/images/' . ($element->logo ? 'political_party/thumbnail/' . $element->logo : 'political-party.png')); ?>" style="background-color: #<?php echo (!$element->logo ? $element->color : 'FFFFFF'); ?>" alt="<?php echo  htmlspecialchars($element->full_name, ENT_QUOTES); ?>" />
 						<br/>
 						<?php echo  htmlspecialchars($element->short_name, ENT_QUOTES); ?>
 					</span>
@@ -33,7 +33,7 @@
 					<span class="graph-party-pointer">
 					</span>
 					<span class="graph-party-image">
-						<img src="<?php echo site_url('assets/images/political-party.png'); ?>" style="background-color: #<?php echo $element->color; ?>" alt="<?php echo  htmlspecialchars($element->full_name, ENT_QUOTES); ?>" />
+						<img src="<?php echo site_url('assets/images/' . ($element->logo ? 'political_party/thumbnail/' . $element->logo : 'political-party.png')); ?>" style="background-color: #<?php echo (!$element->logo ? $element->color : 'FFFFFF'); ?>" alt="<?php echo  htmlspecialchars($element->full_name, ENT_QUOTES); ?>" />
 						<br/>
 						<?php echo  htmlspecialchars($element->short_name, ENT_QUOTES); ?>						
 					</span>

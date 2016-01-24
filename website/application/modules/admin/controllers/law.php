@@ -110,11 +110,11 @@ class Law extends MY_Controller {
 			case 'edit':
 			case 'read':
 				if ($this->authentication->has_access($this->session->get_user_id(), 'commission', USER_TYPE_ADMIN)) {
-					$congressman_id = $state_info->primary_key;
+					$law_id = $state_info->primary_key;
 
 					$this->add_js_startup('$("#tabs").tabs();
 						$("#tabs-2-btn").click(function() {
-								var helpFrame = jQuery("#tabs-2 iframe");
+								var helpFrame = jQuery("#tabs-1 iframe");
 								helpFrame.css("height", "0px")
 								var innerDoc = (helpFrame.get(0).contentDocument) ? helpFrame.get(0).contentDocument : helpFrame.get(0).contentWindow.document;
 								helpFrame.height(innerDoc.body.scrollHeight + 35);
@@ -137,6 +137,18 @@ class Law extends MY_Controller {
 								var innerDoc = (helpFrame.get(0).contentDocument) ? helpFrame.get(0).contentDocument : helpFrame.get(0).contentWindow.document;
 								helpFrame.height(innerDoc.body.scrollHeight + 35);
 						});
+						$("#tabs-4-btn").click(function() {
+								var helpFrame = jQuery("#tabs-4 iframe");
+								helpFrame.css("height", "0px")
+								var innerDoc = (helpFrame.get(0).contentDocument) ? helpFrame.get(0).contentDocument : helpFrame.get(0).contentWindow.document;
+								helpFrame.height(innerDoc.body.scrollHeight + 35);
+							});						
+						$("#tabs-4 iframe").load(function() {
+								var helpFrame = jQuery("#tabs-4 iframe");
+								helpFrame.css("height", "0px")
+								var innerDoc = (helpFrame.get(0).contentDocument) ? helpFrame.get(0).contentDocument : helpFrame.get(0).contentWindow.document;
+								helpFrame.height(innerDoc.body.scrollHeight + 35);
+						});
 					');
 					$this->data_parts['tabs']	= array(
 						array('id' => 'tabs-1',
@@ -144,13 +156,17 @@ class Law extends MY_Controller {
 								'type' => 'gcrud',
 								'content' => $this->grocery_crud->render()),
 						array('id' => 'tabs-2',
+								'title' => 'Historial',
+								'type' => 'url',
+								'content' => site_url('admin/law_timeline/index/none/0/blank/1/' . $law_id)),
+						array('id' => 'tabs-3',
 								'title' => 'Diputados',
 								'type' => 'url',
-								'content' => site_url('admin/law_to_congressman/index/none/0/blank/1/' . $congressman_id)),
-						array('id' => 'tabs-3',
+								'content' => site_url('admin/law_to_congressman/index/none/0/blank/1/' . $law_id)),								
+						array('id' => 'tabs-4',
 								'title' => 'Otros',
 								'type' => 'url',
-								'content' => site_url('admin/law_to_person/index/none/0/blank/1/' . $congressman_id)),
+								'content' => site_url('admin/law_to_person/index/none/0/blank/1/' . $law_id)),
 					);
 					$this->data_parts['tabs'][0]['content']->js_files	= array_merge($this->data_parts['tabs'][0]['content']->js_files, array(site_url('assets/grocery_crud/js/jquery_plugins/ui/jquery-ui-1.10.3.custom.min.js')));
 					$this->grocery_crud_content				= $this->data_parts['tabs'][0]['content'];

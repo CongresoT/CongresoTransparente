@@ -12,6 +12,7 @@
 		<div class="law-timeline">
 			<table id="law-timeline-list">
 				<thead>
+					<th></th>
 					<th>Estado</th>
 					<th>Fecha</th>
 					<th>Descripción</th>
@@ -20,6 +21,7 @@
 				<?php if ($timeline_list): ?>
 					<?php foreach ($timeline_list as $element): ?>
 					<tr class="law-timeline-row">
+						<td><img src="<?php echo site_url('assets/images/timeline/' . $element->icon); ?>" alt="Estado" /></td>
 						<td><?php echo $element->name; ?></td>
 						<td><?php echo $element->date; ?></td>
 						<td><?php echo $element->description; ?></td>

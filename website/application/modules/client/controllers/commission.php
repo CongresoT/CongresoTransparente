@@ -39,6 +39,8 @@ class Commission extends MY_Controller {
   */	
 	function index()
 	{		
+		$this->set_title('Comisiones');
+	
 		$this->add_css_url('jquery.dataTables.min');
 		$this->add_js_url('jquery.dataTables.min');
 		$this->add_js_startup('$("#commission-list").DataTable({
@@ -68,6 +70,7 @@ class Commission extends MY_Controller {
 	}
 	
 	function commission_profile($commission_id) {
+		$this->set_title('Comisión');
 		
 		$searchquery = $this->input->post('searchquery', TRUE);
 		$filters = array();
@@ -76,7 +79,7 @@ class Commission extends MY_Controller {
 		$list = $this->commission_model->get_congressman(intval($commission_id), $filters);
 
 		if ($list)
-		{		
+		{	
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');
 			$this->add_js_startup('$("#commission-list").DataTable({

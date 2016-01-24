@@ -11,7 +11,7 @@
 		</div>
 		<div class="congressman-cv-container">
 		<?php if ($congressman->curriculum): ?>		
-			<iframe src="<?php echo site_url('assets/congressman/' . $congressman->curriculum); ?>" />
+			<iframe src="<?php echo site_url('assets/uploads/congressman/' . $congressman->curriculum); ?>" />
 		<?php else: ?>
 			Este diputado aún no ha subido su CV.
 		<?php endif; ?>			

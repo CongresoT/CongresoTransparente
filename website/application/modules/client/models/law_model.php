@@ -206,8 +206,9 @@ class Law_model extends CI_Model {
 	 */		
 	function get_timeline($law_id)
 	{
-		$this->db->select('lt.name, lt.description, lt.date')
+		$this->db->select('lts.name, lt.description, lt.date, lts.icon')
 			->from('law_timeline lt')
+			->join('law_timeline_status lts', 'lt.law_timeline_status_id=lts.law_timeline_status_id', 'inner')
 			->where('lt.law_id', $law_id);
 	
         $query = $this->db->get();

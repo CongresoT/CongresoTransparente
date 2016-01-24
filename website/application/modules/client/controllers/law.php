@@ -39,6 +39,8 @@ class Law extends MY_Controller {
   */	
 	function index()
 	{
+		$this->set_title('Actividades legislativas');
+		
 		$this->load->model('law_type_model', 'law_type_model',TRUE);
 		$this->load->model('law_status_model', 'law_status_model',TRUE);
 		$this->load->model('commission_model', 'commission_model',TRUE);
@@ -120,10 +122,14 @@ class Law extends MY_Controller {
 	}
 	
 	function law_profile($law_id) {
+		$this->set_title('Actividad legislativa');
+		
 		$law = $this->law_model->get(intval($law_id));
 
 		if ($law)
-		{		
+		{	
+			$this->set_title('Actividad legislativa No.' . $law->number . ' - ' . $law->name);
+	
 			$this->load->model('law_status_model', 'law_status_model',TRUE);
 			
 			$law_status_id = $law->law_status_id;
@@ -144,10 +150,14 @@ class Law extends MY_Controller {
 	}
 	
 	function law_votes($law_id) {
+		$this->set_title('Votos de actividad legislativa');
+		
 		$law = $this->law_model->get(intval($law_id));
 		
 		if ($law)
 		{	
+			$this->set_title('Votos de actividad legislativa No.' . $law->number . ' - ' . $law->name);
+	
 			$this->load->model('political_party_model', 'political_party_model',TRUE);	
 
 			$congressman_list = $this->law_model->get_congressmen(intval($law_id));
@@ -162,15 +172,20 @@ class Law extends MY_Controller {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
 				},
 				"columns": [
-					{ "width": "50%" },
-					{ "width": "45%" },
-					{ "width": "5%" }
+					{ "width": "30%", className: "congressman"},
+					{ "width": "40%", className: "political-party" },
+					{ "width": "30%", className: "vote"  }
 				  ],
 				"ordering": false
 			});
 			
 			$("#political_party_id").change(function() {
 				$("#frmSearch").submit();
+			});
+			
+			$(".law-vote-row .law").click(function() {
+				var congressman_id = $(this).attr("congressman-id");
+				window.location = site_url + "diputado/" + congressman_id;
 			});
 			');
 	
@@ -202,10 +217,13 @@ class Law extends MY_Controller {
 	}
 	
 	function law_rulings($law_id) {
+		$this->set_title('Dictamen de actividad legislativa.');
+		
 		$law = $this->law_model->get(intval($law_id));
 		
 		if ($law)
 		{	
+			$this->set_title('Dictamen de actividad legislativa');
 			$this->load->model('political_party_model', 'political_party_model',TRUE);	
 
 			$congressman_list = $this->law_model->get_congressmen(intval($law_id));
@@ -255,10 +273,14 @@ class Law extends MY_Controller {
 	}
 	
 	function law_timeline($law_id) {
+		$this->set_title('Historial de actividad legislativa');
+		
 		$law = $this->law_model->get(intval($law_id));
 		
 		if ($law)
 		{	
+			$this->set_title('Historial de actividad legislativa No.' . $law->number . ' - ' . $law->name);
+	
 			$this->load->model('political_party_model', 'political_party_model',TRUE);	
 
 			$congressman_list = $this->law_model->get_congressmen(intval($law_id));

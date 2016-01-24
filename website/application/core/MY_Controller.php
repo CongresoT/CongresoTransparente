@@ -89,7 +89,7 @@ class MY_Controller extends CI_Controller
 		$this->parameters	= $this->parameter_model->get_parameters();
 		
 		// Set default site title
-		//$this->set_title(sprintf($this->lang->line('gen_site_title'), DEFAULT_SITE_TITLE, $this->lang->line('gen_subtitle')));
+		$this->title = DEFAULT_SITE_TITLE;
         
 		// Detects if the user is using and old browser that is known to have some issues with the app and gets a custom message to warn the user
 		$browser_warning_message = $this->get_browser_warning();
@@ -107,7 +107,7 @@ class MY_Controller extends CI_Controller
             'description' => DEFAULT_SITE_DESCRIPTION,
             'keywords' => DEFAULT_SITE_KEYWORDS
         );
-
+		
 		$this->css_url 				= array();
 		$this->css_scripts 			= array();
 		$this->js_scripts	 		= array();
@@ -166,7 +166,7 @@ class MY_Controller extends CI_Controller
   * @return	none
   */
     function set_title($title) {
-        $this->title = $title;
+        $this->title = DEFAULT_SITE_TITLE . ' :: ' . $title;
     }
 
 /**

@@ -541,6 +541,14 @@ input.gsc-search-button {
 	margin: 0 3%;
 }
 
+#congressman-votes-list .law {
+	cursor: pointer;
+}
+
+#congressman-votes-list .vote {
+	text-align: right;
+}
+
 .congressman-attendance-total-container {
 	text-align: center;
 }
@@ -552,8 +560,7 @@ input.gsc-search-button {
 	text-align: center;
 	font-size: 1em;
 	padding: 1%;
-	width: 7vw;
-    height: 7vw;	
+	width: 15%;
 	margin: 0 4%;
 	position: relative;
 	top: 50%;
@@ -563,17 +570,24 @@ input.gsc-search-button {
 .congressman-attendance-total-content {
 	position: relative;
 	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
+	vertical-align: top;
 }
 
 .congressman-attendance-total .congressman-attendance-total-content .value {
+	width: 100%;
 	font-size: 2vw;
 	font-weight: bold;
+	height: inherit;
 }
 
 .congressman-attendance-total .congressman-attendance-total-content .text {
-	font-size: 1vw;
-	line-height: 1vw;
+	width: 100%;
+	font-size: 1em;
+	line-height: 1em;
+	height: inherit;
 }
 
 .congressman-parties-graph .graph-row {
@@ -747,6 +761,10 @@ input.gsc-search-button {
 	margin: 0 3%;
 }
 
+.congressman-law-row {
+	cursor: pointer;
+}
+
 .congressman-cv .congressman-cv-container {
 	text-align: center;
 	font-size: 1.5em;
@@ -755,6 +773,10 @@ input.gsc-search-button {
 .congressman-cv .congressman-cv-container iframe {
 	width: 100%;
 	height: 25vw;
+}
+
+#congressman-commissions-list .congressman-commission-row .commission {
+	cursor: pointer;
 }
 
 /*** law ***/
@@ -803,7 +825,7 @@ input.gsc-search-button {
 }
 
 .law-info .law-info-container {
-	padding: 0 3%;
+	padding: 0;
 }
 
 .law-info .law-info-container .label-fullname {
@@ -852,14 +874,55 @@ input.gsc-search-button {
 	cursor: pointer;	
 }
 
+.law-status-line-container {
+	text-align: center;
+}	
+
 .law-status-line {
 	margin: 0 auto;
-	width: 25%;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+}
+
+.law-status-line .bkg {
+	top: 15px;
+	height: 10px;
+	position: absolute;
+	border-radius: 50px;
+	background-color: #00B7FF;
+	width: 100%;
+	z-index: -1;
 }
 
 .law-status-line-element {
 	color: #00B7FF;
-	font-size: 1.2em;
+	font-size: 1em;
+	display: inline-block;
+	text-align: center;
+	z-index: 2;
+	vertical-align: top;
+}
+
+.law-status-line-element .image {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	margin: 0 auto;
+}
+
+.law-status-line-element .image.active {
+	background-color: #00B7FF;	
+}
+
+.law-status-line-element .image.inactive {
+	background-color: #A0A0A0;
+}
+
+.law-status-line-element .text {
+	display: block;
+	font-weight: bold;
 }
 
 .law-votes .search-form {
@@ -885,6 +948,17 @@ input.gsc-search-button {
 	margin: 0 auto;
 }
 
+#law-votes-list .congressman {
+	cursor: pointer;
+}
+
+#law-votes-list .vote {
+	text-align: right;
+}
+
+#law-votes-list .political-party {
+	text-align: center;
+}
 
 .law-rulings .search-form {
 	margin: 2% 0;
@@ -1008,8 +1082,7 @@ input.gsc-search-button {
 	}	
 	
 	.congressman-attendance-total {
-		width: 10vw;
-		height: 10vw;	
+		width: 25%;
 	}	
 
 	.law-info {
@@ -1020,5 +1093,5 @@ input.gsc-search-button {
 	
 	.law-info .law-description {
 		width: 100%;
-	}	
+	}
 }

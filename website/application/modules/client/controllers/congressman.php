@@ -39,6 +39,8 @@ class Congressman extends MY_Controller {
   */	
 	function index()
 	{
+		$this->set_title('Diputados');
+		
 		$this->load->model('district_model', 'district_model',TRUE);
 		$this->load->model('political_party_model', 'political_party_model',TRUE);		
 		
@@ -104,23 +106,31 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_profile($congresman_id) {
+		$this->set_title('Perfil de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 
 		if ($congressman)
 		{		
+			$this->set_title('Perfil de ' . $congressman->names . ' ' . $congressman->last_names);
+			
 			$this->load->view('congressman_profile', array('congressman_info' => $this->load->view('congressman_info', array('congressman' => $congressman), TRUE),
 				'congressman_id' => $congresman_id)
-			);		
+			);
 		}
 		else
 			show_404();
 	}
 	
 	function congressman_votes($congresman_id) {
+		$this->set_title('Votaciones de diputados');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('Votaciones de ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$this->load->model('law_type_model', 'law_type_model',TRUE);	
 	
 			$this->add_css_url('jquery.dataTables.min');
@@ -132,8 +142,8 @@ class Congressman extends MY_Controller {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
 				},
 				"columns": [
-					{ "width": "95%" },
-					{ "width": "5%" }
+					{ "width": "70%", "className": "law" },
+					{ "width": "30%", "className": "vote" }
 				  ],
 				"ordering": false,
 				"initComplete": function(settings, json) {
@@ -165,6 +175,11 @@ class Congressman extends MY_Controller {
 			$(window).resize(function() {
 				resize_buttons();
 			});
+			
+			$(".congressman-vote-row .law").click(function() {
+				var law_id = $(this).attr("law-id");
+				window.location = site_url + "actividad_legislativa/" + law_id;
+			});	
 			');
 	
 			$searchquery = $this->input->post('searchquery', TRUE);
@@ -191,10 +206,14 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_attendance($congresman_id) {
+		$this->set_title('Asistencia de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('Asistencia de ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$this->add_js_url('highcharts');
 
 			$total	= 0;
@@ -218,6 +237,26 @@ class Congressman extends MY_Controller {
 			}
 
 			$this->add_js_startup('
+				function resize_squares() {
+					var max_width = 0;
+					$(".congressman-attendance-total").each(function(index) {
+						max_width = $(this).width() > max_width ? $(this).width() : max_width;
+					});
+					$(".congressman-attendance-total").css("height", max_width);
+					$(".congressman-attendance-total").css("width", max_width);
+				}
+			
+				$(document).resize(function() {
+					$(".congressman-attendance-total").css("height", "");
+					$(".congressman-attendance-total").css("width", "");
+					resize_squares();
+				})
+			
+				$(document).ready(function(){
+					resize_squares();
+				});
+			
+			
 				$("#graph-container").highcharts({
 						chart: {
 							plotBackgroundColor: null,
@@ -237,7 +276,7 @@ class Congressman extends MY_Controller {
 							y: 90
 						},
 						tooltip: {
-							pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>"
+							pointFormat: "{series.name}: <b>{point.y}</b>"
 						},
 						plotOptions: {
 							pie: {
@@ -276,10 +315,14 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_parties($congresman_id) {
+		$this->set_title('Bancadas de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{		
+			$this->set_title('Bancadas de ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$political_parties_list	= $this->congressman_model->get_political_parties($congresman_id);
 	
 			$this->load->view('congressman_political_parties', array('congressman_info' => $this->load->view('congressman_info', array('congressman' => $congressman), TRUE),
@@ -292,10 +335,14 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_laws($congresman_id) {
+		$this->set_title('Leyes propuestas por diputado ');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('Leyes propuestas por ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$this->load->model('law_type_model', 'law_type_model',TRUE);	
 	
 			$this->add_css_url('jquery.dataTables.min');
@@ -336,6 +383,11 @@ class Congressman extends MY_Controller {
 			$(window).resize(function() {
 				resize_buttons();
 			});
+			
+			$(".congressman-law-row").click(function() {
+				var law_id = $(this).attr("law-id");
+				window.location = site_url + "actividad_legislativa/" + law_id;
+			});				
 			');
 	
 			$searchquery = $this->input->post('searchquery', TRUE);
@@ -362,10 +414,14 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_citations($congresman_id) {
+		$this->set_title('Citciones de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('Citaciones de ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');	
 			$this->add_js_startup('$("#congressman-citations-list").DataTable({
@@ -393,19 +449,32 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_comissions($congresman_id) {
+		$this->set_title('Comisiones de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('Comisiones de ' . $congressman->names . ' ' . $congressman->last_names);
+	
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');	
 			$this->add_js_startup('$("#congressman-commissions-list").DataTable({
 				"sDom": \'<"top">rt<"bottom"ip><"clear">\',
 				"iDisplayLength": 10,
+				"columns": [
+					{"className": "commission"},
+					null,
+					null
+				],
 				"language": {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
 				}
 			});
+			$(".congressman-commission-row .commission").click(function() {
+				var comission_id = $(this).attr("comission-id");
+				window.location = site_url + "comision/" + comission_id;
+			});							
 			');
 
 			$commissions_list	= $this->congressman_model->get_comissions($congresman_id);
@@ -420,10 +489,14 @@ class Congressman extends MY_Controller {
 	}
 	
 	function congressman_cv($congresman_id) {
+		$this->set_title('CV de diputado');
+		
 		$congressman = $this->congressman_model->get(intval($congresman_id));
 		
 		if ($congressman)
 		{	
+			$this->set_title('CV de ' . $congressman->names . ' ' . $congressman->last_names);
+			
 			$this->load->view('congressman_cv', array('congressman_info' => $this->load->view('congressman_info', array('congressman' => $congressman), TRUE),
 				'congressman_id' => $congresman_id, 
 				'congressman' => $congressman)

@@ -95,7 +95,7 @@ class Congressman_model extends CI_Model {
 	 */		
 	function get_votes($congressman_id, $filters = "")
 	{
-		$this->db->select('l.number, l.name, l.number, v.vote_result_id, vr.name AS vote_result_name')
+		$this->db->select('l.law_id, l.name, l.number, v.vote_result_id, vr.name AS vote_result_name')
 			->from('vote v')
 			->join('vote_result vr', 'v.vote_result_id=vr.vote_result_id', 'inner')
 			->join('law l', 'l.law_id=v.law_id', 'inner')
@@ -156,7 +156,7 @@ class Congressman_model extends CI_Model {
 	 */		
 	function get_political_parties($congressman_id)
 	{
-		$this->db->select('cpp.date_begin, cpp.date_end, pp.full_name, pp.short_name, pp.color', FALSE)
+		$this->db->select('cpp.date_begin, cpp.date_end, pp.full_name, pp.short_name, pp.color, pp.logo', FALSE)
 			->from('congressman_to_political_party cpp')
 			->join('political_party pp', 'pp.political_party_id=cpp.political_party_id', 'left')
 			->where('cpp.congressman_id', $congressman_id)

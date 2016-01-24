@@ -173,7 +173,7 @@ class Congressman extends MY_Controller {
 	 * @return	bool	TRUE if successful, FALSE otherwise
 	 */
 	public function after_insert($post_array, $primary_key)
-	{
+	{	
 		if ($post_array['photo'] != '')
 		{
 			// Generate two smaller images

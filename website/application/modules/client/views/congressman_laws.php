@@ -53,7 +53,7 @@
 				<tbody>
 				<?php if ($laws_list): ?>
 					<?php foreach ($laws_list as $element): ?>
-					<tr class="congressman-law-row">
+					<tr class="congressman-law-row" law-id="<?php echo $element->law_id; ?>">
 						<td>No.<?php echo $element->number; ?> - <?php echo $element->name; ?></td>
 					</tr>
 					<?php endforeach; ?>

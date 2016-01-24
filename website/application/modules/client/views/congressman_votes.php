@@ -49,18 +49,18 @@
 				<?php if ($vote_list): ?>
 					<?php foreach ($vote_list as $element): ?>
 					<tr class="congressman-vote-row">
-						<td>No. <?php echo $element->number; ?> - <?php echo $element->name; ?></td>
+						<td law-id="<?php echo $element->law_id; ?>">No. <?php echo $element->number; ?> - <?php echo $element->name; ?></td>
 						<td><?php 
 						switch ($element->vote_result_id)
 						{
 							case VOTE_RESULT_ID_YES:
-								echo '<img src="' . site_url('assets/images/icon-check.png') . '" alt="' . $element->vote_result_name . '" />';
+								echo $element->vote_result_name . ' <img src="' . site_url('assets/images/icon-check.png') . '" alt="' . $element->vote_result_name . '" />';
 							break;
 							case VOTE_RESULT_ID_NO:
-								echo '<img src="' . site_url('assets/images/icon-cross.png') . '" alt="' . $element->vote_result_name . '" />';
+								echo $element->vote_result_name . ' <img src="' . site_url('assets/images/icon-cross.png') . '" alt="' . $element->vote_result_name . '" />';
 							break;
 							case VOTE_RESULT_ID_NONE:
-								echo '<img src="' . site_url('assets/images/icon-circle.png') . '" alt="' . $element->vote_result_name . '" />';
+								echo $element->vote_result_name . ' <img src="' . site_url('assets/images/icon-circle.png') . '" alt="' . $element->vote_result_name . '" />';
 							break;
 						}
 						?></td>

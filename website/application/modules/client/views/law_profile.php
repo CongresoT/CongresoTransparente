@@ -1,12 +1,15 @@
 <div class="main-container">	
 	<?php echo $law_info; ?>
-	<div class="law-status-line">
-		<?php foreach($law_status_list as $option): ?>
-			<div class="law-status-line-element">
-				<span class="image"><img src="<?php echo site_url('assets/images/' . ($option->law_status_id == $law_status_id ? 'timeline-active.png' : 'timeline-inactive.png'));?>" alt="<?php echo $option->name;?>" /></span>
-				<span class="text"><?php echo $option->name;?></span>
-			</div>
-		<?php endforeach; ?>
+	<div class="law-status-line-container">
+		<div class="law-status-line">
+			<?php foreach($law_status_list as $option): ?>
+				<div class="law-status-line-element" style="max-width: <?php echo 100 / count($law_status_list); ?>%">
+					<span class="image <?php echo ($option->law_status_id == $law_status_id ? 'active' : 'inactive'); ?>"></span>
+					<span class="text"><?php echo $option->name;?></span>
+				</div>
+			<?php endforeach; ?>
+			<div class="bkg"></div>
+		</div>
 	</div>
 	<div class="law-menu">
 		<a href="<?php echo site_url('actividad_legislativa/votaciones/' . $law_id); ?>"><img src="<?php echo site_url('assets/images/btn-law-votes.png'); ?>" class="btn-menu" alt="Votaciones" /></a>
