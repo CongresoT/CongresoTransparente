@@ -92,7 +92,7 @@ class Law_timeline extends MY_Controller {
 		
 		$this->grocery_crud->set_primary_key('law_timeline_id');
 		
-		$this->grocery_crud->set_relation('law_status_id','law_status', '{order} - {name}');
+	$this->grocery_crud->set_relation('law_status_id','law_status', '{law_status.order} - {name}');
 
 		$this->grocery_crud->columns('law_timeline_status_id', 'description', 'date');
 		$this->grocery_crud->fields('law_id', 'law_timeline_status_id', 'description', 'date');
