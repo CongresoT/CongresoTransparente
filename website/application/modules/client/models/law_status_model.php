@@ -26,7 +26,7 @@ class Law_status_model extends CI_Model {
 	 */		
 	function get_list()
 	{
-		$this->db->select('ls.*, ls.status_id as law_status_id')
+		$this->db->select('ls.*, ls.law_status_id as law_status_id')
 			->from('law_status ls')
 			->order_by('ls.order');
 	
