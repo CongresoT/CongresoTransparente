@@ -102,6 +102,17 @@ define('SYS_MSG_STYLE_ERROR', 4);
 
 /*
 |--------------------------------------------------------------------------
+| Sex ID
+|--------------------------------------------------------------------------
+|
+| Sexes IDs
+|
+*/
+define('SEX_ID_FEMALE', 1);
+define('SEX_ID_MALE', 2);
+
+/*
+|--------------------------------------------------------------------------
 | Vote Results ID
 |--------------------------------------------------------------------------
 |
@@ -133,7 +144,7 @@ define('ATTENDANCE_STATE_ID_NONE', 4);
 | These are IDs of client's site main content
 |
 */
-define('APP_VERSION', '0.8.5.0');
+define('APP_VERSION', '1.0.1.2');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

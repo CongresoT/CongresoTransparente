@@ -26,9 +26,9 @@ class Law_model extends CI_Model {
 	 */		
 	function get($law_id)
 	{
-		$this->db->select('l.law_id, l.number, l.name, l.presentation_date, l.description, l.status_id law_status_id, ls.name law_status, lt.name law_type, c.name commission', FALSE)
+		$this->db->select('l.law_id, l.number, l.name, l.presentation_date, l.description, l.law_status_id law_status_id, ls.name law_status, lt.name law_type, c.name commission, l.document', FALSE)
 			->from('law l')
-			->join('law_status ls', 'l.status_id=ls.status_id', 'inner')
+			->join('law_status ls', 'l.law_status_id=ls.law_status_id', 'inner')
 			->join('law_type lt', 'l.law_type_id=lt.law_type_id', 'inner')
 			->join('commission_to_law cl', 'l.law_id=cl.law_id', 'left')
 			->join('commission c', 'c.comission_id=cl.comission_id', 'left')
@@ -52,9 +52,9 @@ class Law_model extends CI_Model {
 	 */		
 	function get_list($filters = '')
 	{
-		$this->db->select('l.law_id, l.number, l.name, l.presentation_date, l.status_id law_status_id, ls.name law_status, lt.name law_type, c.name commission')
+		$this->db->select('l.law_id, l.number, l.name, l.presentation_date, l.law_status_id law_status_id, ls.name law_status, lt.name law_type, c.name commission')
 			->from('law l')
-			->join('law_status ls', 'l.status_id=ls.status_id', 'inner')
+			->join('law_status ls', 'l.law_status_id=ls.law_status_id', 'inner')
 			->join('law_type lt', 'l.law_type_id=lt.law_type_id', 'inner')
 			->join('commission_to_law cl', 'l.law_id=cl.law_id', 'left')
 			->join('commission c', 'c.comission_id=cl.comission_id', 'left');
@@ -65,7 +65,7 @@ class Law_model extends CI_Model {
 				$this->db->where('l.law_type_id', $filters['law_type_id']);
 
 			if (array_key_exists('law_status_id', $filters))
-				$this->db->where('l.status_id', $filters['law_status_id']);
+				$this->db->where('l.law_status_id', $filters['law_status_id']);
 
 			if (array_key_exists('commission_id', $filters))
 				$this->db->where('cl.commission_id', $filters['commission_id']);
@@ -206,9 +206,9 @@ class Law_model extends CI_Model {
 	 */		
 	function get_timeline($law_id)
 	{
-		$this->db->select('lts.name, lt.description, lt.date, lts.icon')
+		$this->db->select('ls.name, lt.description, lt.date, ls.icon')
 			->from('law_timeline lt')
-			->join('law_timeline_status lts', 'lt.law_timeline_status_id=lts.law_timeline_status_id', 'inner')
+			->join('law_status ls', 'lt.law_status_id=ls.law_status_id', 'inner')
 			->where('lt.law_id', $law_id);
 	
         $query = $this->db->get();

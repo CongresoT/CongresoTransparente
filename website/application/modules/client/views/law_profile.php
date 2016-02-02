@@ -3,9 +3,8 @@
 	<div class="law-status-line-container">
 		<div class="law-status-line">
 			<?php foreach($law_status_list as $option): ?>
-				<div class="law-status-line-element" style="max-width: <?php echo 100 / count($law_status_list); ?>%">
-					<span class="image <?php echo ($option->law_status_id == $law_status_id ? 'active' : 'inactive'); ?>"></span>
-					<span class="text"><?php echo $option->name;?></span>
+				<div class="law-status-line-element" style="max-width: <?php echo number_format(100 / count($law_status_list) - 2, 2, '.', ''); ?>%">
+					<span class="image <?php echo ($option->law_status_id == $law_status_id ? 'active' : 'inactive'); ?>" title="<?php echo htmlspecialchars($option->name, ENT_QUOTES);?>"></span>
 				</div>
 			<?php endforeach; ?>
 			<div class="bkg"></div>

@@ -407,11 +407,19 @@ input.gsc-search-button {
 .congressman-info .congressman-photo-container {
 	max-width: 20%;
 	vertical-align: top;
+	background: #CDCDCD;
+	position: relative;
 }
 
 .congressman-info .congressman-photo {
 	max-width: 100%;
 	vertical-align: top;
+}
+
+.congressman-info .congressman-party-logo {
+	position: absolute;
+	bottom: -5%;
+	right: -5%;
 }
 
 .congressman-info .congressman-info-container {
@@ -443,6 +451,22 @@ input.gsc-search-button {
     margin: 3% 0 0 0;
     font-size: 1.1em;
 }
+
+.congressman-info .congressman-info-container .social-button {
+	opacity: 1;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;		
+	width: 30px;
+	margin: 0 2% 0 0;
+}
+
+.congressman-info .congressman-info-container .social-button:hover {
+	opacity: 0.5;	
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;		
+	margin: 0 2% 0 0;
+}
+
 
 .congressman-menu {
 	text-align: center;
@@ -902,6 +926,7 @@ input.gsc-search-button {
 	text-align: center;
 	z-index: 2;
 	vertical-align: top;
+	padding: 0 2%;
 }
 
 .law-status-line-element .image {

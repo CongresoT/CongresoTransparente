@@ -80,14 +80,14 @@ class Law extends MY_Controller {
 		$this->grocery_crud->display_as('document','Documento');
 		$this->grocery_crud->display_as('law_type_id','Tipo de actividad');
 		$this->grocery_crud->display_as('presentation_date','Fecha de presentación');
-		$this->grocery_crud->display_as('status_id','Estado');
+		$this->grocery_crud->display_as('law_status_id','Estado');
 		
 		$this->grocery_crud->set_field_upload('document','assets/uploads/law');
 
 		$this->grocery_crud->fields('name', 'law_type_id', 'description', 'number', 'presentation_date', 'status_id', 'document');
 		$this->grocery_crud->columns('name', 'law_type_id', 'description', 'number', 'presentation_date', 'status_id');
 		
-		$this->grocery_crud->set_relation('status_id', 'law_status', '{name}');
+		$this->grocery_crud->set_relation('law_status_id', 'law_status', '{order} - {name}');
 		$this->grocery_crud->set_relation('law_type_id', 'law_type', '{name}');
 		
 		// BEGIN: Validation rules
@@ -95,7 +95,7 @@ class Law extends MY_Controller {
 		$this->grocery_crud->set_rules('number','Número','required');
 		$this->grocery_crud->set_rules('law_type_id','Tipo de actividad','required');
 		$this->grocery_crud->set_rules('presentation_date','Fecha de presentación','required');
-		$this->grocery_crud->set_rules('status_id','Estado','required');
+		$this->grocery_crud->set_rules('law_status_id','Estado','required');
 		$this->grocery_crud->required_fields('name', 'law_type_id', 'number', 'presentation_date', 'status_id');
 		// END: Validation rules
 		

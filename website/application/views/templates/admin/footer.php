@@ -1,2 +1,2 @@
-<div class="copyright">Copyright &copy; <?php echo (date('Y')>2015?'2015-':'').date('Y'); ?></div>
+<div class="copyright">Copyright &copy; <?php echo (date('Y')>2015?'2015-':'').date('Y'); ?> - Versión: <?php echo APP_VERSION; ?></div>
 <div class="benchmark">Generado en: <?php echo $this->benchmark->elapsed_time();?> segundos usando <?php echo $this->benchmark->memory_usage();?> de memoria.</div>

@@ -128,6 +128,11 @@ class Law extends MY_Controller {
 
 		if ($law)
 		{	
+			$this->add_css_script('label {
+								display: inline-block;
+								width: 5em;
+							  }');	
+			$this->add_js_startup('$(".law-status-line-element .image").tooltip();');
 			$this->set_title('Actividad legislativa No.' . $law->number . ' - ' . $law->name);
 	
 			$this->load->model('law_status_model', 'law_status_model',TRUE);

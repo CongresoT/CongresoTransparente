@@ -9,6 +9,7 @@
 		<div class="col-md-6 back-container">
 			<a href="<?php echo site_url('diputado/' . $congressman_id); ?>"><img src="<?php echo site_url('assets/images/btn-back.png'); ?>" alt="Regresar" /></a>
 		</div>
+		<?php if (is_array($political_parties_list) && count($political_parties_list) > 0): ?>
 		<div class="congressman-parties-graph">
 			<div class="graph-row">
 				<div class="graph-party-left top"></div><div class="graph-party-middle top"></div><div class="graph-party-right top"></div>
@@ -48,6 +49,7 @@
 				<div class="graph-party-left bottom"></div><div class="graph-party-middle bottom"></div><div class="graph-party-right bottom"></div>
 			</div>		
 		</div>
+		<?php endif; ?>
 	</div>
 	<div class="fb-comments" data-href="<?php echo site_url('diputado/' . $congressman_id); ?>">" data-numposts="5"></div>
 </div>

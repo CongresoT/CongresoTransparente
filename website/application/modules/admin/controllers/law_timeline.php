@@ -84,7 +84,7 @@ class Law_timeline extends MY_Controller {
 		$this->grocery_crud->set_subject('historial');
 		
 		$this->grocery_crud->display_as('law_id','Actividad legislativa');
-		$this->grocery_crud->display_as('law_timeline_status_id','Estado');
+		$this->grocery_crud->display_as('law_status_id','Estado');
 		$this->grocery_crud->display_as('description','Descripción');
 		$this->grocery_crud->display_as('date','Fecha');
 		
@@ -92,7 +92,7 @@ class Law_timeline extends MY_Controller {
 		
 		$this->grocery_crud->set_primary_key('law_timeline_id');
 		
-		$this->grocery_crud->set_relation('law_timeline_status_id','law_timeline_status', '{law_timeline_status_id} - {name}');
+		$this->grocery_crud->set_relation('law_status_id','law_status', '{order} - {name}');
 
 		$this->grocery_crud->columns('law_timeline_status_id', 'description', 'date');
 		$this->grocery_crud->fields('law_id', 'law_timeline_status_id', 'description', 'date');
@@ -105,9 +105,9 @@ class Law_timeline extends MY_Controller {
 		// END: Callbacks
 	
 		// BEGIN: Validation rules
-		$this->grocery_crud->set_rules('law_timeline_status_id','Estado','required');
+		$this->grocery_crud->set_rules('law_status_id','Estado','required');
 		$this->grocery_crud->set_rules('date','Fecha','required');
-		$this->grocery_crud->required_fields('law_timeline_status_id', 'date');
+		$this->grocery_crud->required_fields('law_status_id', 'date');
 		// END: Validation rules
 		
 		if ($this->data_parts['filters']['law_id'] != '')
