@@ -87,7 +87,7 @@ class Law extends MY_Controller {
 		$this->grocery_crud->fields('name', 'law_type_id', 'description', 'number', 'presentation_date', 'law_status_id', 'document');
 		$this->grocery_crud->columns('name', 'law_type_id', 'description', 'number', 'presentation_date', 'law_status_id');
 		
-		$this->grocery_crud->set_relation('law_status_id', 'law_status', '{law_status.order} - {name}');
+		$this->grocery_crud->set_relation('law_status_id', 'law_status', '{law_status_id} - {name}');
 		$this->grocery_crud->set_relation('law_type_id', 'law_type', '{name}');
 		
 		// BEGIN: Validation rules

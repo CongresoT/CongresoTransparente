@@ -76,7 +76,7 @@ class Commission_model extends CI_Model {
 	 */		
 	function get_congressman($commission_id, $filters)
 	{
-		$this->db->select('cc.order, pp.full_name political_party, c.congressman_id, c.names, c.last_names, cc.position, ')
+		$this->db->select('cc.order, pp.short_name political_party, c.congressman_id, c.names, c.last_names, cc.position, ')
 			->from('commission_to_congressman cc')
 			->join('congressman c', 'c.congressman_id=cc.congressman_id', 'inner')
 			->join('congressman_to_political_party cpp', 'c.congressman_id=cpp.congressman_id', 'left')

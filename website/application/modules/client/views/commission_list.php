@@ -20,7 +20,7 @@
 				<thead>
 					<tr>
 						<th>Nombre</th>
-						<th>Fecha</th>
+						<th>Año</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,7 +28,7 @@
 					<?php foreach ($list as $element): ?>
 					<tr commission-id="<?php echo $element->comission_id; ?>" class="commission-row">
 						<td><?php echo $element->name; ?></td>
-						<td><?php echo $element->date; ?></td>
+						<td><?php echo date('Y', strtotime($element->date)); ?></td>
 					</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>
