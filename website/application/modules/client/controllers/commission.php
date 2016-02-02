@@ -80,6 +80,7 @@ class Commission extends MY_Controller {
 
 		if ($list)
 		{	
+			$commission = $this->commission_model->get(intval($commission_id));
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');
 			$this->add_js_startup('$("#commission-list").DataTable({
@@ -87,7 +88,13 @@ class Commission extends MY_Controller {
 				"iDisplayLength": 10,
 				"language": {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
-				}
+				},
+				"columns": [
+					{ "width": "3%"},
+					{ "width": "55%"},
+					{ "width": "25%"},
+					{ "width": "27%"}
+				  ],				
 			});
 
 			$(".commission-row").click(function() {
@@ -95,9 +102,10 @@ class Commission extends MY_Controller {
 				window.location = site_url + "diputado/" + congressman_id;
 			});			
 			');	
-	
+
 			$this->load->view('commission_profile',
 				array('commission_id' => $commission_id,
+				'commission' => $commission,
 				'list' => $list,
 				'searchquery' => $searchquery)
 			);		

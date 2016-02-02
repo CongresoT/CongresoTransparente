@@ -84,8 +84,8 @@ class Law extends MY_Controller {
 		
 		$this->grocery_crud->set_field_upload('document','assets/uploads/law');
 
-		$this->grocery_crud->fields('name', 'law_type_id', 'description', 'number', 'presentation_date', 'status_id', 'document');
-		$this->grocery_crud->columns('name', 'law_type_id', 'description', 'number', 'presentation_date', 'status_id');
+		$this->grocery_crud->fields('name', 'law_type_id', 'description', 'number', 'presentation_date', 'law_status_id', 'document');
+		$this->grocery_crud->columns('name', 'law_type_id', 'description', 'number', 'presentation_date', 'law_status_id');
 		
 		$this->grocery_crud->set_relation('law_status_id', 'law_status', '{order} - {name}');
 		$this->grocery_crud->set_relation('law_type_id', 'law_type', '{name}');
@@ -114,7 +114,7 @@ class Law extends MY_Controller {
 
 					$this->add_js_startup('$("#tabs").tabs();
 						$("#tabs-2-btn").click(function() {
-								var helpFrame = jQuery("#tabs-1 iframe");
+								var helpFrame = jQuery("#tabs-2 iframe");
 								helpFrame.css("height", "0px")
 								var innerDoc = (helpFrame.get(0).contentDocument) ? helpFrame.get(0).contentDocument : helpFrame.get(0).contentWindow.document;
 								helpFrame.height(innerDoc.body.scrollHeight + 35);

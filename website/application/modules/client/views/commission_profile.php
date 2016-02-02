@@ -1,6 +1,7 @@
 <div class="main-container">	
 	<div class="section-title">
 		<img src="<?php echo site_url('assets/images/title-comissions.png'); ?>" alt="Comisiones" />
+		<h3><?php echo $commission->name; ?></h3>
 	</div>
 	<div class="commission-list">
 		<div class="search-form">
@@ -19,7 +20,9 @@
 			<table id="commission-list">
 				<thead>
 					<tr>
+						<th>#</th>
 						<th>Diputado</th>
+						<th>Partido Político</th>
 						<th>Puesto</th>
 					</tr>
 				</thead>
@@ -27,7 +30,9 @@
 				<?php if ($list): ?>
 					<?php foreach ($list as $element): ?>
 					<tr congressman-id="<?php echo $element->congressman_id; ?>" class="commission-row">
+						<td><?php echo $element->order; ?></td>
 						<td><?php echo $element->names . ' ' . $element->last_names; ?></td>
+						<td><?php echo $element->political_party; ?></td>
 						<td><?php echo $element->position; ?></td>
 					</tr>
 					<?php endforeach; ?>

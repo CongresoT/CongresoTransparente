@@ -19,6 +19,28 @@ class Commission_model extends CI_Model {
     }
 
 	/**
+	 * Get commission
+	 *
+	 * @param	int		Commission ID
+	 * @return	array	Commission information
+	 */		
+	function get($commission_id)
+	{
+		$this->db->select('c.*')
+			->from('commission c')
+			->where('c.comission_id', $commission_id);
+			
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+		{
+			return $query->row();
+		}
+        else
+            return FALSE;
+	}
+
+	/**
 	 * Get commission list
 	 *
 	 * @param	array		Filters
@@ -54,9 +76,12 @@ class Commission_model extends CI_Model {
 	 */		
 	function get_congressman($commission_id, $filters)
 	{
-		$this->db->select('c.congressman_id, c.names, c.last_names, cc.position')
+		$this->db->select('cc.order, pp.full_name political_party, c.congressman_id, c.names, c.last_names, cc.position, ')
 			->from('commission_to_congressman cc')
 			->join('congressman c', 'c.congressman_id=cc.congressman_id', 'inner')
+			->join('congressman_to_political_party cpp', 'c.congressman_id=cpp.congressman_id', 'left')
+			->join('political_party pp', 'pp.political_party_id=cpp.political_party_id', 'left')
+			->where('((SELECT IFNULL(MAX(IFNULL(cppsq.date_end, "9999-12-31 23:59:59")), "9999-12-31 23:59:59") FROM congressman_to_political_party cppsq WHERE cppsq.congressman_id=c.congressman_id) = IFNULL(cpp.date_end, "9999-12-31 23:59:59"))')			
 			->where('cc.comission_id', $commission_id)
 			->order_by('cc.order');
 
