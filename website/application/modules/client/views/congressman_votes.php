@@ -64,6 +64,7 @@
 							break;
 						}
 						?></td>
+						<td><?php echo $element->law_type_id; ?></td>
 					</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>

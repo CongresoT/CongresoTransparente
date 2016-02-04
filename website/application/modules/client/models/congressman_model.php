@@ -95,7 +95,7 @@ class Congressman_model extends CI_Model {
 	 */		
 	function get_votes($congressman_id, $filters = "")
 	{
-		$this->db->select('l.law_id, l.name, l.number, v.vote_result_id, vr.name AS vote_result_name')
+		$this->db->select('l.law_id, l.name, l.number, v.vote_result_id, vr.name AS vote_result_name, l.law_type_id')
 			->from('vote v')
 			->join('vote_result vr', 'v.vote_result_id=vr.vote_result_id', 'inner')
 			->join('law l', 'l.law_id=v.law_id', 'inner')

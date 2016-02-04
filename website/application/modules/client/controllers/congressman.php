@@ -135,15 +135,16 @@ class Congressman extends MY_Controller {
 	
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');	
-			$this->add_js_startup('$("#congressman-votes-list").DataTable({
+			$this->add_js_startup('var table = $("#congressman-votes-list").DataTable({
 				"sDom": \'<"top">rt<"bottom"ip><"clear">\',
 				"iDisplayLength": 10,
 				"language": {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
 				},
 				"columns": [
-					{ "width": "70%", "className": "law" },
-					{ "width": "30%", "className": "vote" }
+					{ "width": "67%", "className": "law" },
+					{ "width": "30%", "className": "vote" },
+					{ "width": "3%", "className": "law_type", "visible": false }
 				  ],
 				"ordering": false,
 				"initComplete": function(settings, json) {
@@ -151,11 +152,35 @@ class Congressman extends MY_Controller {
 				}
 			});
 			
+			$.fn.dataTable.ext.search.push(
+				function( settings, data, dataIndex ) {
+					var law_type_id = parseInt( $("input[name=law_type_id]").val(), 10 );
+					var row_law_type_id = parseInt( data[2] ) || 0;
+			 
+					if (  isNaN(law_type_id) ||
+						  law_type_id == row_law_type_id ||
+						  law_type_id == 0  )
+					{
+						return true;
+					}
+					return false;
+				}
+			);			
+			
 			$(".btn-law-type").click(function() {
 				$("input[name=law_type_id]").val($(this).attr("law-type-id"));
-				$("#frmSearch").submit();
+				$(".btn-law-type").removeClass("selected");
+				$(this).addClass("selected");
+				
+				table.draw();
 			});
 
+			$(".btn-search").click(function() {
+				var searchquery = $("#searchquery").val();
+				table.search(searchquery).draw();
+				return false;
+			});
+			
 			$(window).bind("resizeEnd", function() {
 			});			
 			
@@ -347,21 +372,49 @@ class Congressman extends MY_Controller {
 	
 			$this->add_css_url('jquery.dataTables.min');
 			$this->add_js_url('jquery.dataTables.min');	
-			$this->add_js_startup('$("#congressman-laws-list").DataTable({
+			$this->add_js_startup('var table = $("#congressman-laws-list").DataTable({
 				"sDom": \'<"top">rt<"bottom"ip><"clear">\',
 				"iDisplayLength": 10,
 				"language": {
 					"url": "' . site_url('assets/js/datatables_plugins/Spanish.json') . '"
 				},
+				"columns": [
+					{ "width": "97%", "className": "law" },
+					{ "width": "3%", "className": "law_type", "visible": false }
+				  ],				
 				"ordering": false,
 				"initComplete": function(settings, json) {
 					$("#congressman-laws-list thead tr th").css("padding", "0");
 				}
 			});
 			
+			$.fn.dataTable.ext.search.push(
+				function( settings, data, dataIndex ) {
+					var law_type_id = parseInt( $("input[name=law_type_id]").val(), 10 );
+					var row_law_type_id = parseInt( data[1] ) || 0;
+			 
+					if (  isNaN(law_type_id) ||
+						  law_type_id == row_law_type_id ||
+						  law_type_id == 0  )
+					{
+						return true;
+					}
+					return false;
+				}
+			);			
+			
 			$(".btn-law-type").click(function() {
 				$("input[name=law_type_id]").val($(this).attr("law-type-id"));
-				$("#frmSearch").submit();
+				$(".btn-law-type").removeClass("selected");
+				$(this).addClass("selected");
+				
+				table.draw();
+			});
+
+			$(".btn-search").click(function() {
+				var searchquery = $("#searchquery").val();
+				table.search(searchquery).draw();
+				return false;
 			});
 
 			$(window).bind("resizeEnd", function() {

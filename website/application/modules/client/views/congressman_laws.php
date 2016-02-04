@@ -55,6 +55,7 @@
 					<?php foreach ($laws_list as $element): ?>
 					<tr class="congressman-law-row" law-id="<?php echo $element->law_id; ?>">
 						<td>No.<?php echo $element->number; ?> - <?php echo $element->name; ?></td>
+						<td><?php echo $element->law_type_id; ?></td>
 					</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>

@@ -11,7 +11,9 @@
 					<img class="congressman-photo" src="<?php echo site_url('assets/images/congressman-male.png'); ?>" alt="<?php echo htmlspecialchars($congressman->last_names . ' ,' . $congressman->names, ENT_QUOTES); ?>" />
 					<?php endif; ?>
 				<?php endif; ?>
-				<img class="congressman-party-logo" src="<?php echo site_url('assets/images/political_party/thumbnail/' . $congressman->logo); ?>" alt="<?php echo htmlspecialchars($congressman->party_name, ENT_QUOTES); ?>" />
+				<?php if ($congressman->logo): ?>
+					<img class="congressman-party-logo" src="<?php echo site_url('assets/images/political_party/thumbnail/' . $congressman->logo); ?>" alt="<?php echo htmlspecialchars($congressman->party_name, ENT_QUOTES); ?>" />
+				<?php endif; ?>
 			</div>
 			<div class="congressman-info-container">
 				<span class="label-fullname"><?php echo $congressman->last_names; ?>, <?php echo $congressman->names; ?></span>
